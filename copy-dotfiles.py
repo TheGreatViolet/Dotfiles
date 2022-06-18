@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # Script to copy dotfiles to working directory
 
 from glob import escape

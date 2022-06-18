@@ -11,6 +11,9 @@ interval=3
 [cpu-usage]
 interval=3
 
+[clock]
+interval=3
+
 [power-menu]
 interval=once
 min-width=Button=? x=? y=?
