@@ -37,9 +37,6 @@ exec --no-startup-id nm-applet
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec xfce4-terminal
-
 # kill focused window
 bindsym $mod+q kill
 
@@ -86,7 +83,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+a layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -94,9 +91,6 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -134,13 +128,19 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Assigning apps to workspaces
-assign [class="xfce4-terminal"] to workspace $ws1
-assign [class="firefox-nightly"] to workspace $ws2
-assign [class="code-insiders"] to workspace $ws3
-assign [class="discord"] to workspace $ws4
+assign [class="xfce4-terminal"] $ws1
+assign [class="firefox-nightly"] $ws2
+assign [class="code-insiders"] $ws3
+assign [class="discord"] $ws4
 
 # Spotify is dumb and stupid and doesn't work right so it gets to be special
-for_window [class="Spotify"] move to workspace $ws5
+for_window [class="Spotify"] move $ws5
+
+# Hotkeys for opening applications
+bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+w exec --no-startup-id firefox-nightly
+bindsym $mod+c exec --no-startup-id code-insiders
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
